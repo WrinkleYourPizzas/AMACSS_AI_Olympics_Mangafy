@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Query{% endblock %}
+
+{% block content %}
+<!-- <img src="../../Images/new_image 2.jpg"> -->
+<p>HELLOOOOOO</p>
+
+
+
+<div class="big-container">
+    <div id="content-page">
+        <div id="inner-content">
+            <h1 id="prompt-h1">{{ prompt }}</h1>
+            {% for i in range(courseParagraphs |length) %}
+            {% if i == 0 %}
+                <p class="content-paragraphs">{{ i + 1 }}: {{ courseParagraphs[i] }}</p>
+                <img src="{{ courseImages[0] }}" class="content-images" alt="">
+                {% elif i == (courseParagraphs |length) - 3%}
+                <p class="content-paragraphs">{{ i + 1 }}: {{ courseParagraphs[i] }}</p>
+                <img src="{{ courseImages[1] }}" class="content-images" alt="">
+                <!-- <img src="new_image 2.jpg"> -->
+                {% else %}
+                <p class="content-paragraphs without-image">{{ i + 1 }}: {{ courseParagraphs[i] }}</p>
+
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="input-page">
+        <div id="messages-display">
+            <div class="message-holder computer-colour">
+                <ul class="messages">
+                    <li class="computer-message">Type your prompt below!</li>
+                </ul>
+            </div>
+        </div>
+        <div id="input-area">
+            <div id="message-box">
+                <input type="text" id="message-input" placeholder="Type message..."></input>
+                <button type="submit" id="message-submit">Send</button>
+              </div>
+              <div id="button-area">
+                  <!-- <button id="gen-quiz" class="btn btn-primary my-btn">Quiz Me!</button>
+                  <button id="gen-summary" class="btn btn-primary my-btn">Summarize</button> -->
+                  <!-- <select name="output-format" id="output-format">
+                      <option value="text">Generate Text</option>
+                      <option value="image">Generate Image</option>
+                  </select> -->
+              </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
